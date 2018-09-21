@@ -6,7 +6,7 @@ A subset of the BCP 47 spec: https://tools.ietf.org/html/bcp47
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'zendesk_i18n_dev_tools'
+gem 'bcp47_spec'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ $ bundle
 
 Or install it yourself as:
 ```
-$ gem install zendesk_i18n_dev_tools
+$ gem install bcp47_spec
 ```
 
 ## Usage
