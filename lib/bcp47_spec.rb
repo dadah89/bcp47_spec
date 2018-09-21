@@ -18,7 +18,7 @@ module BCP47
       raise InvalidLanguageTag, "Invalid language tag: #{language_tag}" unless result
 
       fields = %w[language script region variants extensions private]
-      Tag.new(*result.fetch_values(*fields))
+      Tag.new(*result.values_at(*fields))
     end
   end
 end

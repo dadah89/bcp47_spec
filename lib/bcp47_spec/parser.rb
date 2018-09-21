@@ -104,22 +104,32 @@ module BCP47::Parser
 
   LANGUAGE_TAG = /\A#{LANGTAG}\z/
 
-  def self.parse(language_tag)
-    return unless match = language_tag.match(LANGUAGE_TAG)
+  class << self
+    def parse(language_tag)
+      return unless match = language_tag.match(LANGUAGE_TAG)
 
-    match.named_captures.tap do |captures|
-      captures['variants']   = captures['variants'] ? captures['variants'][/-(.*)/, 1].split('-').sort : []
-      captures['extensions'] = split_extensions(captures['extensions'])
-      captures['private']    = captures['private'] ? captures['private'][/x-(.*)/, 1].split('-').sort : []
+      named_captures(match).tap do |captures|
+        captures['variants']   = captures['variants'] ? captures['variants'][/-(.*)/, 1].split('-').sort : []
+        captures['extensions'] = split_extensions(captures['extensions'])
+        captures['private']    = captures['private'] ? captures['private'][/x-(.*)/, 1].split('-').sort : []
+      end
     end
-  end
 
-  def self.split_extensions(extensions)
-    return [] unless extensions
+    private
 
-    # [["u-attr-co-phonebk"], ["t-und-cyrl"]]
-    extensions = extensions.scan(/\b(?<ext>#{EXTENSION})\b/)
-    # [["t", "und-cyrl"], ["u", "attr-co-phonebk"]]
-    extensions.flatten.sort.map { |st| st.split('-', 2) }
+    def named_captures(match)
+      return match.named_captures if match.respond_to?(:named_captures)
+
+      match.names.each_with_object({}) { |name, acc| acc[name] = match[name] }
+    end
+
+    def split_extensions(extensions)
+      return [] unless extensions
+
+      # [["u-attr-co-phonebk"], ["t-und-cyrl"]]
+      extensions = extensions.scan(/\b(?<ext>#{EXTENSION})\b/)
+      # [["t", "und-cyrl"], ["u", "attr-co-phonebk"]]
+      extensions.flatten.sort.map { |st| st.split('-', 2) }
+    end
   end
 end
