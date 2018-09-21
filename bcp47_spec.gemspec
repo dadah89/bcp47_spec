@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.author  = 'Igor Justino'
   spec.license = 'MIT'
 
-  spec.summary  = 'Tasks to help developers manage strings.'
+  spec.summary  = 'A subset of the BCP 47 spec.'
   spec.homepage = 'https://github.com/dadah89/bcp47_spec'
 
   spec.files = Dir['{lib}/**/*'] + %w[Readme.md]

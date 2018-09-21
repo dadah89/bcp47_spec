@@ -1,4 +1,4 @@
-# bcp47_spec
+# bcp47_spec [![Build Status](https://travis-ci.org/dadah89/bcp47_spec.svg?branch=master)](https://travis-ci.org/dadah89/bcp47_spec)
 A subset of the BCP 47 spec: https://tools.ietf.org/html/bcp47
 
 ## Installation
