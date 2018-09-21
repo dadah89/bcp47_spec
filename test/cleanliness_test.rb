@@ -10,7 +10,9 @@ describe 'cleanliness' do
   end
 
   it 'has tests for all files' do
+    # lib/bcp47_spec/parser.rb Coverted by bcp47_spect_test.rb
     SingleCov.assert_tested untested: %w[
+      lib/bcp47_spec/parser.rb
       lib/bcp47_spec/version.rb
     ]
   end

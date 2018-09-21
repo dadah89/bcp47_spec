@@ -22,19 +22,23 @@ $ gem install zendesk_i18n_dev_tools
 ## Usage
 
 ```ruby
-BCP47.valid?('de-Latn-DE-1996-x-private-test') # true
+BCP47.valid?('de-Latn-DE-1996-u-attr-co-phonebk-t-und-cyrl-x-private-test') # true
 ```
 
 ```ruby
-tag = BCP47.new('de-Latn-DE-1996-x-private-test')
+tag = BCP47.parse('de-Latn-DE-1996-u-attr-co-phonebk-t-und-cyrl-x-private-test')
 tag.language  # de
 tag.script    # Latn
 tag.region    # DE
 tag.variant   # [1996]
-tag.extension # []
-tag.private   # private-test
+tag.extension # [['t', 'und-cyrl'], ['u', 'attr-co-phonebk']]
+tag.private   # ['private', 'test']
 ```
 
 ```ruby
-BCP47.new('blahblah') # raises InvalidLanguageTag
+BCP47.parse('blahblahblah') # raises InvalidLanguageTag
 ```
+
+## TODO
+
+* Parse extensions T (https://tools.ietf.org/html/rfc6497) and U (https://tools.ietf.org/html/rfc6067)
