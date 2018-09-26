@@ -109,9 +109,9 @@ module BCP47::Parser
       return unless match = language_tag.match(LANGUAGE_TAG)
 
       named_captures(match).tap do |captures|
-        captures['variants']   = captures['variants'] ? captures['variants'][/-(.*)/, 1].split('-').sort : []
+        captures['variants']   = captures['variants'].to_s.empty? ? [] : captures['variants'][/-(.*)/, 1].split('-').sort
         captures['extensions'] = split_extensions(captures['extensions'])
-        captures['private']    = captures['private'] ? captures['private'][/x-(.*)/, 1].split('-').sort : []
+        captures['private']    = captures['private'].to_s.empty? ? [] : captures['private'][/x-(.*)/, 1].split('-').sort
       end
     end
 
@@ -124,7 +124,7 @@ module BCP47::Parser
     end
 
     def split_extensions(extensions)
-      return [] unless extensions
+      return [] if extensions.to_s.empty?
 
       # [["u-attr-co-phonebk"], ["t-und-cyrl"]]
       extensions = extensions.scan(/\b(?<ext>#{EXTENSION})\b/)
