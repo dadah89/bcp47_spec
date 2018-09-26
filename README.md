@@ -41,4 +41,5 @@ BCP47.parse('blahblahblah') # raises InvalidLanguageTag
 
 ## TODO
 
+* Parse private and grandfathered language tags (maybe?)
 * Parse extensions T (https://tools.ietf.org/html/rfc6497) and U (https://tools.ietf.org/html/rfc6067)
