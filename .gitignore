@@ -1,0 +1,5 @@
+.gitconfig
+/.bundle/
+/vendor/bundle/
+.byebug_history
+Gemfile.lock

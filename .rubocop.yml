@@ -1,0 +1,137 @@
+# If you own a namespace and would like to enforce a different set of
+# rules, add a `.rubocop.yml` file to that directory. That configuration
+# can inherit from this file or override these rules entirely.
+
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Include:
+    - '**/*.rb'
+    - '**/*.rake'
+    - '**/*.ru'
+    - '**/*.gemspec'
+    - '**/Capfile'
+    - '**/Gemfile'
+    - '**/Rakefile'
+  TargetRubyVersion: 2.2
+
+ClassLength:
+  Enabled: false
+
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedLastArgumentHashStyle: always_ignore
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Layout/ExtraSpacing:
+  Enabled: false
+
+Layout/FirstParameterIndentation:
+  Enabled: false
+
+Layout/IndentHash:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Width: 2
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/NonLocalExitFromIterator:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/BlockNesting:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Performance/RegexpMatch:
+  Enabled: false
+
+# alias / alias_method are both fine
+Style/Alias:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# sometimes the most readable way of doing things
+Style/ClassVars:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+# often makes logical sense to not combine if with elsif
+Style/IfInsideElse:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+# %w[] shows that it will return an array
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%i': '[]'
+    '%w': '[]'
+    '%W': '[]'
+
+Style/PerlBackrefs:
+  Enabled: false
+
+# for single `/` more readable
+Style/RegexpLiteral:
+  Enabled: false
+
+# `explode rescue nil` is nice in tests
+Style/RescueModifier:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
