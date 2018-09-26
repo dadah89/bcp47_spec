@@ -2,6 +2,7 @@
 
 require 'bundler/setup'
 require 'bump/tasks'
+Bundler::GemHelper.install_tasks
 
 desc 'Run tests'
 task :test do
